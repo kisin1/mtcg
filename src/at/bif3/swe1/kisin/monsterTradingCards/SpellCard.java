@@ -1,18 +1,14 @@
 package at.bif3.swe1.kisin.monsterTradingCards;
 
-public class SpellCard extends ACard{
-//    private String name;
-//    private int damage;
-//    private ElementType elementType;
-//    private CardType cardType;
 
+public class SpellCard extends Card{
 
-    public SpellCard(SpellCard card){
-        super(card);
+    public SpellCard(String name, int damage, ElementType elementType, CardType cardType){
+        super(name, damage, elementType, cardType);
     }
 
-    protected SpellCard(ACard aCard) {
-        super(aCard);
+    private SpellCard(SpellCard card) {
+        super(card);
     }
 
     @Override
@@ -20,8 +16,4 @@ public class SpellCard extends ACard{
         return new SpellCard(this);
     }
 
-    @Override
-    public String toString(){
-        return "Name: " + this.getName() + "\nDamage: " + this.getDamage();
-    }
 }
