@@ -3,16 +3,17 @@ package at.bif3.swe1.kisin.monsterTradingCards;
 public abstract class Card implements Cloneable {
     private String name;
     private float damage;
+
+    private float calcDamage;
     private ElementType elementType;
-    private CardType cardType;
+    protected CardType cardType;
 
     //private int cardId;
 
-    public Card(String name, float damage, ElementType elementType, CardType cardType){
+    public Card(String name, float damage, ElementType elementType){
         this.name = name;
         this.damage = damage;
         this.elementType = elementType;
-        this.cardType = cardType;
     }
     protected Card(Card card){
         this.name = card.name;
@@ -35,6 +36,10 @@ public abstract class Card implements Cloneable {
     public float getDamage(){
         return this.damage;
     }
+
+    public void setCalcDamage(float damage){ this.calcDamage = damage; }
+
+    public float getCalcDamage() { return calcDamage; }
 
     public abstract Card clone();
 //    public Object clone(){

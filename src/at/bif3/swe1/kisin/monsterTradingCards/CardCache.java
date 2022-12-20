@@ -8,18 +8,18 @@ public class CardCache {
     private final Map<String, Card> cache = new HashMap<>();
 
     public CardCache(){
-        SpellCard spellCard1 = new SpellCard("WatterSpell", 50, ElementType.WATER, CardType.SPELL);
-        SpellCard spellCard2 = new SpellCard("FireSpell", 65, ElementType.FIRE, CardType.SPELL);
-        SpellCard spellCard3 = new SpellCard("RegularSpell", 35, ElementType.NORMAL, CardType.SPELL);
+        SpellCard spellCard1 = new SpellCard("WatterSpell", 50, ElementType.WATER);
+        SpellCard spellCard2 = new SpellCard("FireSpell", 65, ElementType.FIRE);
+        SpellCard spellCard3 = new SpellCard("RegularSpell", 35, ElementType.NORMAL);
 
-        MonsterCard monsterCard1 = new MonsterCard("Knight", 45, ElementType.NORMAL, CardType.MONSTER, MonsterType.KNIGHT);
-        MonsterCard monsterCard2 = new MonsterCard("Goblin", 70, ElementType.WATER, CardType.MONSTER, MonsterType.GOBLIN);
-        MonsterCard monsterCard3 = new MonsterCard("Dragon", 75, ElementType.FIRE, CardType.MONSTER, MonsterType.DRAGON);
-        MonsterCard monsterCard4 = new MonsterCard("Wizard", 60, ElementType.NORMAL, CardType.MONSTER, MonsterType.WIZARD);
-        MonsterCard monsterCard5 = new MonsterCard("Troll", 55, ElementType.WATER, CardType.MONSTER, MonsterType.TROLL);
-        MonsterCard monsterCard6 = new MonsterCard("Elf", 35, ElementType.NORMAL, CardType.MONSTER, MonsterType.ELF);
-        MonsterCard monsterCard7 = new MonsterCard("Kraken", 60, ElementType.WATER, CardType.MONSTER, MonsterType.KRAKEN);
-        MonsterCard monsterCard8 = new MonsterCard("Ork", 40, ElementType.FIRE, CardType.MONSTER, MonsterType.ORK);
+        MonsterCard monsterCard1 = new MonsterCard("Knight", 45, ElementType.NORMAL,MonsterType.KNIGHT);
+        MonsterCard monsterCard2 = new MonsterCard("Goblin", 70, ElementType.WATER, MonsterType.GOBLIN);
+        MonsterCard monsterCard3 = new MonsterCard("Dragon", 75, ElementType.FIRE, MonsterType.DRAGON);
+        MonsterCard monsterCard4 = new MonsterCard("Wizard", 60, ElementType.NORMAL, MonsterType.WIZARD);
+        MonsterCard monsterCard5 = new MonsterCard("Troll", 55, ElementType.WATER, MonsterType.TROLL);
+        MonsterCard monsterCard6 = new MonsterCard("Elf", 35, ElementType.NORMAL, MonsterType.ELF);
+        MonsterCard monsterCard7 = new MonsterCard("Kraken", 60, ElementType.WATER, MonsterType.KRAKEN);
+        MonsterCard monsterCard8 = new MonsterCard("Ork", 40, ElementType.FIRE, MonsterType.ORK);
 
 
         cache.put("WatterSpell", spellCard1);

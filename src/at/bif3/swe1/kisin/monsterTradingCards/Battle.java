@@ -20,18 +20,16 @@ public class Battle {
         deck1 = player1.chooseDeck();
         deck2 = player2.chooseDeck();
         while (!winner){
-
-
             Card card1 = player1.chooseCard();
             Card card2 = player2.chooseCard();
 
             printStats(card1, card2);
             effectiveFight(card1, card2);
-            if(card1.getDamage() > card2.getDamage()){
+            if(card1.getCalcDamage() > card2.getCalcDamage()){
                 System.out.println(" => " + card1.getName() + " wins");
                 deck1.add(card2);
                 deck2.remove(card2);
-            } else if(card1.getDamage() < card2.getDamage()){
+            } else if(card1.getCalcDamage() < card2.getCalcDamage()){
                 System.out.println(" => " + card2.getName() + " wins");
                 deck2.add(card1);
                 deck1.remove(card1);
@@ -45,7 +43,7 @@ public class Battle {
             }
 
         }
-        System.out.println("Game Over");
+        System.out.println("========Game Over========");
     }
 
     public void effectiveFight(Card card1, Card card2){
@@ -57,9 +55,9 @@ public class Battle {
         if((card1.getElementType().equals(ElementType.WATER) && card2.getElementType().equals(ElementType.FIRE))
                 || (card1.getElementType().equals(ElementType.FIRE) && card2.getElementType().equals(ElementType.NORMAL))
                 || (card1.getElementType().equals(ElementType.NORMAL) && card2.getElementType().equals(ElementType.WATER))){
-            card1.setDamage(card1.getDamage()*2);
-            card2.setDamage(card2.getDamage()/2);
-            System.out.print(" => " + card1.getDamage() + " vs " + card2.getDamage());
+            card1.setCalcDamage(card1.getDamage()*2);
+            card2.setCalcDamage(card2.getDamage()/2);
+            System.out.print(" => " + card1.getCalcDamage() + " vs " + card2.getCalcDamage());
         }
     }
 
