@@ -29,23 +29,11 @@ public class HttpServer {
             try {
                 Socket connection = serverSocket.accept();
                 System.out.println("Connection established, sending data...");
-/////////////////////////////////////////////////////////////////////
-                BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-                PrintWriter out = new PrintWriter(connection.getOutputStream());
 
-                String str = ".";
-                while (!str.equals("")){
-                    str = in.readLine();
-                }
+                RequestHandler requestHandler = new RequestHandler(connection);
+                requestHandler.run();
 
-                out.println("HTTP/1.0 200 OK");
-                out.println("Content-Type: text/html");
-                out.println("Server: Bot");
-                out.println("");
-                out.println("<h3>Welcome to my first attempt server</h3>");
-                out.flush();
 
-                connection.close();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

@@ -22,10 +22,28 @@ public class RequestHandler implements Runnable {
             OutputStream outputStream = connection.getOutputStream();
             out = new PrintWriter(outputStream);
 
+            //receive and parse request
+            Request request = new RequestParser().parseRequest(in);
+            System.out.println(request);
 
+            out.write(new Response(StatusCode.OK, ContentType.APPLICATION_JSON, "hola" + request.getBody()).get());
+            out.flush();
 
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+        }
+        finally {
+            try {
+                if(out != null){
+                    out.close();
+                }
+                if(in != null){
+                    in.close();
+                    connection.close();
+                }
+            } catch (IOException e) {
+               e.printStackTrace();
+            }
         }
 
     }
