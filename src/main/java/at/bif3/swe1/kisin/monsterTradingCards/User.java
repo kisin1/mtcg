@@ -1,12 +1,16 @@
 package at.bif3.swe1.kisin.monsterTradingCards;
 
 import java.util.Random;
-import java.util.Scanner;
 import java.util.Vector;
 
 public class User {
+    private int user_id;
     private String username;
     private String password;
+    private String bio;
+    private String image;
+    private String token;
+    private boolean isAdmin;
     private int coins;
     private int elo;
     private Vector<Card> stack;
@@ -34,6 +38,7 @@ public class User {
             System.out.println(card);
         }
     }
+
 
     public Vector<Card> chooseDeck(){
         deck = new Vector<>();
