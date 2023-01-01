@@ -1,6 +1,9 @@
 package at.bif3.swe1.kisin.monsterTradingCards;
 
 
+import at.bif3.swe1.kisin.monsterTradingCards.enums.CardType;
+import at.bif3.swe1.kisin.monsterTradingCards.enums.ElementType;
+
 public class SpellCard extends Card{
 
     public SpellCard(String name, int damage, ElementType elementType){

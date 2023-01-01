@@ -1,5 +1,8 @@
 package at.bif3.swe1.kisin.monsterTradingCards;
 
+import at.bif3.swe1.kisin.monsterTradingCards.enums.CardType;
+import at.bif3.swe1.kisin.monsterTradingCards.enums.ElementType;
+
 public abstract class Card implements Cloneable {
     private String name;
     private float damage;

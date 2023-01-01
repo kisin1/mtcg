@@ -3,6 +3,7 @@ package at.bif3.swe1.kisin.httpServer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RequestParser {
@@ -21,7 +22,7 @@ public class RequestParser {
             String[] splitFirstLine = firstLine.split(" ");
             //set method, path and version
             request.setMethod(splitFirstLine[0]);
-            request.setPath(splitFirstLine[1]);
+            request.setFullPath(splitFirstLine[1]);
             request.setHttpVersion(splitFirstLine[2]);
         }
 
@@ -36,6 +37,7 @@ public class RequestParser {
         }
 
         request.setHeaderMap(headerMap);
+        request.setPath(splitPath());
 
         //receive body
         if(request.getContentLength() > 0){
@@ -43,7 +45,15 @@ public class RequestParser {
             in.read(charBuffer, 0, request.getContentLength());
             request.setBody(new String(charBuffer));
         }
-
         return request;
     }
+    private List<String> splitPath(){
+        List<String> temp = List.of(request.getFullPath().split("/"));
+
+        if(temp.get(1).contains("?")){
+            return List.of(temp.get(1).split("\\?"));
+        }
+        return temp;
+    }
+
 }

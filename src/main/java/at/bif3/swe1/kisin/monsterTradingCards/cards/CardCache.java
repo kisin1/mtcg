@@ -1,5 +1,8 @@
 package at.bif3.swe1.kisin.monsterTradingCards;
 
+import at.bif3.swe1.kisin.monsterTradingCards.enums.ElementType;
+import at.bif3.swe1.kisin.monsterTradingCards.enums.MonsterType;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,7 +15,7 @@ public class CardCache {
         SpellCard spellCard2 = new SpellCard("FireSpell", 65, ElementType.FIRE);
         SpellCard spellCard3 = new SpellCard("RegularSpell", 35, ElementType.NORMAL);
 
-        MonsterCard monsterCard1 = new MonsterCard("Knight", 45, ElementType.NORMAL,MonsterType.KNIGHT);
+        MonsterCard monsterCard1 = new MonsterCard("Knight", 45, ElementType.NORMAL, MonsterType.KNIGHT);
         MonsterCard monsterCard2 = new MonsterCard("Goblin", 70, ElementType.WATER, MonsterType.GOBLIN);
         MonsterCard monsterCard3 = new MonsterCard("Dragon", 75, ElementType.FIRE, MonsterType.DRAGON);
         MonsterCard monsterCard4 = new MonsterCard("Wizard", 60, ElementType.NORMAL, MonsterType.WIZARD);

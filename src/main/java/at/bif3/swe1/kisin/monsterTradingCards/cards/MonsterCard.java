@@ -1,5 +1,9 @@
 package at.bif3.swe1.kisin.monsterTradingCards;
 
+import at.bif3.swe1.kisin.monsterTradingCards.enums.CardType;
+import at.bif3.swe1.kisin.monsterTradingCards.enums.ElementType;
+import at.bif3.swe1.kisin.monsterTradingCards.enums.MonsterType;
+
 public class MonsterCard extends Card{
     MonsterType monsterType;
 
