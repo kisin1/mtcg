@@ -1,4 +1,4 @@
-package at.bif3.swe1.kisin.httpServer;
+package at.bif3.swe1.kisin.httpServer.model;
 
 
 import at.bif3.swe1.kisin.httpServer.enums.ContentType;

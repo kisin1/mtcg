@@ -1,87 +1,156 @@
 package at.bif3.swe1.kisin.monsterTradingCards;
 
-import java.util.Random;
+import at.bif3.swe1.kisin.monsterTradingCards.cards.Card;
+import at.bif3.swe1.kisin.monsterTradingCards.stacks.Deck;
+import at.bif3.swe1.kisin.monsterTradingCards.stacks.Stack;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Vector;
 
 public class User {
     private int user_id;
+    @JsonProperty("Name")
+    private String name;
+    @JsonProperty("Username")
     private String username;
+    @JsonProperty("Password")
     private String password;
+    @JsonProperty("Bio")
     private String bio;
+    @JsonProperty("Image")
     private String image;
     private String token;
     private boolean isAdmin;
     private int coins;
     private int elo;
-    private Vector<Card> stack;
-    private Vector<Card> deck;
+    private Stack stack;
+    private Deck deck;
+
+    public User(){ this.username = "Unknown"; this.password = "Unknown"; }
+    public User(int user_id, String username, String password, String bio, String token, String image, int elo, int coins, boolean isAdmin, String name) {
+        this.user_id = user_id;
+        this.username = username;
+        this.password = password;
+        this.bio = bio;
+        this.token = token;
+        this.image = image;
+        this.elo = elo;
+        this.coins = coins;
+        this.isAdmin = isAdmin;
+        this.name = name;
+        this.stack = new Stack();
+        this.deck = new Deck();
+    }
+    //for testing
     public User(String username, String password){
         this.username = username;
         this.password = password;
         this.coins = 20;
-        stack = new Vector<>();
-        fillStack();
-    }
-
-    private void fillStack(){
-        Random rand = new Random();
-        CardCache cardCache = new CardCache();
-        Object[] values = cardCache.getCachedCards().values().toArray();
-        for(int i = 0; i < 20; i++){
-            Card randomCard = (Card) values[rand.nextInt(values.length)];
-            stack.add(randomCard);
-        }
-    }
-
-    public void printStack(){
-        for(Card card : stack){
-            System.out.println(card);
-        }
+        this.stack = new Stack();
+        stack.fillStack();
     }
 
 
-    public Vector<Card> chooseDeck(){
-        deck = new Vector<>();
-        Random rand = new Random();
-        int limit = 20;
-        for(int i = 0; i < 4; i++){
-            int index = rand.nextInt(limit);
-            deck.add(stack.elementAt(index));
-            stack.removeElementAt(index);
-            limit--;
-        }
-        return deck;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void  listDeck(){
-        System.out.println("Your deck has the following cards: ");
-        for(int i = 1; i < 5; i++){
-            System.out.println(i + ". " + deck.elementAt(i-1));
-        }
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
 
-    public Card chooseCard(){
-        Random rand = new Random();
-        int index = rand.nextInt(deck.size());
-        return deck.elementAt(index);
-//        System.out.println(this.username + " choose a card to play the next round!");
-//        listDeck();
-//        Scanner in = new Scanner(System.in);
-//
-//        int choice = in.nextInt();
-//        return switch (choice) {
-//            case 1 -> deck.elementAt(0);
-//            case 2 -> deck.elementAt(1);
-//            case 3 -> deck.elementAt(2);
-//            case 4 -> deck.elementAt(3);
-//            default -> null;
-//        };
+    public String getName() { return name; }
+
+    public void setName(String name) { this.name = name; }
+
+    public String getUsername() {
+        return username;
     }
 
-    public String getUsername(){ return this.username; }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
+    public int getCoins() {
+        return coins;
+    }
+
+    public void setCoins(int coins) {
+        this.coins = Math.max(coins, 0);
+    }
+
+    public int getElo() {
+        return elo;
+    }
+
+    public void setElo(int elo) {
+        this.elo = elo;
+    }
+
+    public Stack getStack() {
+        return this.stack;
+    }
+
+    public Vector<Card> getDeck() {
+        return deck.getDeck();
+    }
+
+    public void setDeck(Vector<Card> deck) {
+        this.deck.setDeck(deck);
+    }
 
     @Override
-    public String toString(){
-        return "Username: " + this.username + "\nPassword: " + this.password;
+    public String toString() {
+        return "User: " + username + " {" +
+                "user_id=" + user_id +
+                ", name='" + name + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", bio='" + bio + '\'' +
+                ", image='" + image + '\'' +
+                ", token='" + token + '\'' +
+                ", isAdmin=" + isAdmin +
+                ", coins=" + coins +
+                ", elo=" + elo +
+                '}';
     }
 }

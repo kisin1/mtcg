@@ -1,20 +1,23 @@
-package at.bif3.swe1.kisin.monsterTradingCards;
+package at.bif3.swe1.kisin.monsterTradingCards.cards;
 
 import at.bif3.swe1.kisin.monsterTradingCards.enums.CardType;
 import at.bif3.swe1.kisin.monsterTradingCards.enums.ElementType;
 import at.bif3.swe1.kisin.monsterTradingCards.enums.MonsterType;
 
-public class MonsterCard extends Card{
+public class MonsterCard extends Card {
     MonsterType monsterType;
 
-    public MonsterCard(String name, int damage, ElementType elementType, MonsterType monsterType) {
-        super(name, damage, elementType);
-        this.cardType = CardType.MONSTER;
+    public MonsterCard(String name, float damage, ElementType elementType, MonsterType monsterType) {
+        //super(name, damage, elementType);
+        this.setName(name);
+        this.setDamage(damage);
+        this.setElementType(elementType);
+        this.setCardType(CardType.MONSTER);
         this.monsterType = monsterType;
     }
     private MonsterCard(MonsterCard card) {
         super(card);
-        this.cardType = CardType.MONSTER;
+        this.setCardType(CardType.MONSTER);
         this.monsterType = card.monsterType;
     }
 

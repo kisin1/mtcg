@@ -1,12 +1,13 @@
-package at.bif3.swe1.kisin.httpServer;
+package at.bif3.swe1.kisin.httpServer.json;
 
-import at.bif3.swe1.kisin.httpServer.serializer.CardData;
+import at.bif3.swe1.kisin.monsterTradingCards.cards.Card;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 public class Json {
 
@@ -29,13 +30,25 @@ public class Json {
             return objectMapper.treeToValue(json, returnClass);
     }
 
-    public static ArrayList<Object> fromJsonToArray(JsonNode json, Class returnClass) throws IOException {
-        ArrayList<Object> dataList = new ArrayList<>();
+    public static Map<String,String> toHashMap(String json){
+        Map<String, String> map = null;
+        try {
+            map = objectMapper.readValue(json, new TypeReference<>() {});
+        } catch (Exception e){
+            System.out.println("ERROR: Json to HashMap: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return map;
+    }
+
+    public static ArrayList<Card> fromJsonToArray(JsonNode json) throws IOException {
+        ArrayList<Card> dataList = new ArrayList<>();
         for(int i = 0; i < json.size(); i++){
-            dataList.add(Json.fromJson(json.get(i), returnClass));
+            dataList.add(Json.fromJson(json.get(i), Card.class));
         }
         return dataList;
     }
+
     //from java object to json
     public static JsonNode toJson(Object a){
         return objectMapper.valueToTree(a);

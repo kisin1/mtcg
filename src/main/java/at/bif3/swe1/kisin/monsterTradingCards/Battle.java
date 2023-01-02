@@ -1,12 +1,15 @@
 package at.bif3.swe1.kisin.monsterTradingCards;
 
-import java.util.Vector;
+
+import at.bif3.swe1.kisin.monsterTradingCards.cards.Card;
+import at.bif3.swe1.kisin.monsterTradingCards.enums.ElementType;
+import at.bif3.swe1.kisin.monsterTradingCards.stacks.Deck;
 
 public class Battle {
     User player1;
     User player2;
-    Vector<Card> deck1;
-    Vector<Card> deck2;
+    Deck deck1;
+    Deck deck2;
 
     int round;
     boolean winner;
@@ -17,11 +20,11 @@ public class Battle {
         winner = false;
     }
     public void fight(){
-        deck1 = player1.chooseDeck();
-        deck2 = player2.chooseDeck();
+        deck1 = new Deck(player1);
+        deck2 = new Deck(player2);
         while (!winner){
-            Card card1 = player1.chooseCard();
-            Card card2 = player2.chooseCard();
+            Card card1 = deck1.chooseCard();
+            Card card2 = deck2.chooseCard();
 
             printStats(card1, card2);
             effectiveFight(card1, card2);

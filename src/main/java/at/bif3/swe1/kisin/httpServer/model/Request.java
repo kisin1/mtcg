@@ -1,7 +1,10 @@
-package at.bif3.swe1.kisin.httpServer;
+package at.bif3.swe1.kisin.httpServer.model;
 
 import at.bif3.swe1.kisin.httpServer.enums.Method;
+import at.bif3.swe1.kisin.httpServer.json.Json;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -47,7 +50,13 @@ public class Request {
     public String getAuthorizationToken(){
         if(this.headerMap.get("Authorization") != null)
             return this.headerMap.get("Authorization");
-        return "Unknown";
+        return "";
+    }
+
+    public HashMap<String, String> parseBody() {
+        if(this.body != null)
+            return (HashMap<String, String>) Json.toHashMap(this.body);
+        return null;
     }
     @Override
     public String toString(){
@@ -57,6 +66,4 @@ public class Request {
                 "Headers: " + headerMap + "\n" +
                 "Body: " + this.body;
     }
-
-
 }

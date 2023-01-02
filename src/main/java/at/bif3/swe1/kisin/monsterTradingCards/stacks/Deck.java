@@ -1,5 +1,6 @@
-package at.bif3.swe1.kisin.monsterTradingCards;
+package at.bif3.swe1.kisin.monsterTradingCards.stacks;
 
+import at.bif3.swe1.kisin.monsterTradingCards.User;
 import at.bif3.swe1.kisin.monsterTradingCards.cards.Card;
 
 import java.util.Random;
