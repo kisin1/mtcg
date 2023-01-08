@@ -139,19 +139,30 @@ public class Card implements Cloneable {
 
     @Override
     public String toString() {
-        return "Card{" +
+        return "\nCard{" +
                 "cardId='" + cardId + '\'' +
                 ", name='" + name + '\'' +
                 ", damage=" + damage +
                 ", owner='" + owner + '\'' +
-                ", calcDamage=" + calcDamage +
                 ", elementType=" + elementType +
                 ", cardType=" + cardType +
                 ", monsterType=" + monsterType +
                 ", inDeck=" + inDeck +
-                ", packageId=" + packageId +
                 '}';
     }
+
+//    public String formatPlain() {
+//        return "\n{" +
+//                "cardId='" + cardId + '\'' +
+//                "\nname='" + name + '\'' +
+//                "\ndamage=" + damage +
+//                "\nowner='" + owner + '\'' +
+//                "\nelementType=" + elementType +
+//                "\ncardType=" + cardType +
+//                "\nmonsterType=" + monsterType +
+//                "\ninDeck=" + inDeck +
+//                '}';
+//    }
 
     //    @Override
 //    public String toString() {
