@@ -3,6 +3,7 @@ package at.bif3.swe1.kisin.httpServer.model;
 
 import at.bif3.swe1.kisin.httpServer.enums.ContentType;
 import at.bif3.swe1.kisin.httpServer.enums.StatusCode;
+import com.fasterxml.jackson.databind.JsonNode;
 
 public class Response {
 
@@ -10,6 +11,7 @@ public class Response {
     private String STATUS_MESSAGE;
     private final ContentType contentType;
     private String content;
+    private JsonNode jsonContent;
     private final String version;
     private final String CRLF = "\r\n";
 
@@ -21,6 +23,7 @@ public class Response {
         this.content = content;
         this.version = "HTTP/1.1";
     }
+
 
     public void setStatusCode(StatusCode statusCode){
         this.STATUS_CODE = statusCode.STATUS_CODE;

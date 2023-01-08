@@ -47,11 +47,12 @@ public class Card implements Cloneable {
         return null;
     }
 
-    public Card(String cardId, String name, MonsterType monsterType, ElementType elementType, float damage, String owner, boolean inDeck, int packageId  ){
+    public Card(String cardId, String name, MonsterType monsterType, ElementType elementType, CardType cardType, float damage, String owner, boolean inDeck, int packageId  ){
         this.cardId = cardId;
         this.name = name;
         this.monsterType = monsterType;
         this.elementType = elementType;
+        this.cardType = cardType;
         this.damage = damage;
         this.owner = owner;
         this.inDeck = inDeck;

@@ -1,12 +1,9 @@
 package at.bif3.swe1.kisin.monsterTradingCards;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
         Battle battle = new Battle();
-        battle.fight();
+        battle.start();
 
 //        User player;
 //        player = new User("Player", "player1");

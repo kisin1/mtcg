@@ -1,8 +1,5 @@
 package at.bif3.swe1.kisin.monsterTradingCards.cards;
 
-import at.bif3.swe1.kisin.monsterTradingCards.cards.Card;
-import at.bif3.swe1.kisin.monsterTradingCards.cards.MonsterCard;
-import at.bif3.swe1.kisin.monsterTradingCards.cards.SpellCard;
 import at.bif3.swe1.kisin.monsterTradingCards.enums.ElementType;
 import at.bif3.swe1.kisin.monsterTradingCards.enums.MonsterType;
 

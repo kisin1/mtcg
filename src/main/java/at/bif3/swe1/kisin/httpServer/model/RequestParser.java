@@ -1,6 +1,5 @@
 package at.bif3.swe1.kisin.httpServer.model;
 
-import at.bif3.swe1.kisin.httpServer.model.Request;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -50,10 +49,11 @@ public class RequestParser {
         return request;
     }
     private List<String> splitPath(){
-        List<String> temp = List.of(request.getFullPath().split("/"));
+        String fullPath = request.getFullPath().substring(1);
+        List<String> temp = List.of(fullPath.split("/"));
 
-        if(temp.get(1).contains("?")){
-            return List.of(temp.get(1).split("\\?"));
+        if(temp.get(0).contains("?")){
+            temp = List.of(temp.get(0).split("\\?"));
         }
         return temp;
     }

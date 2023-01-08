@@ -11,7 +11,7 @@ public class Battle {
     Deck deck1;
     Deck deck2;
 
-    int round;
+    int rounds;
     boolean winner;
 
     public Battle(){
@@ -19,7 +19,13 @@ public class Battle {
         player2 = new User("Nji", "word");
         winner = false;
     }
-    public void fight(){
+    public Battle(User player1, User player2, int rounds){
+        this.player1 = player1;
+        this.player2 = player2;
+        this.rounds = rounds;
+        winner = false;
+    }
+    public void start(){
         deck1 = new Deck(player1);
         deck2 = new Deck(player2);
         while (!winner){
@@ -39,8 +45,8 @@ public class Battle {
             } else {
                 System.out.println(" => It's a draw(No action)");
             }
-            round++;
-            if(round == 100){ break; }
+            rounds++;
+            if(rounds == 100){ break; }
             if(deck1.isEmpty() || deck2.isEmpty()){
                 break;
             }

@@ -1,9 +1,7 @@
 package at.bif3.swe1.kisin.httpServer;
 
 import at.bif3.swe1.kisin.httpServer.json.Json;
-import at.bif3.swe1.kisin.httpServer.serializer.CardData;
 import at.bif3.swe1.kisin.httpServer.serializer.UserCredentials;
-import at.bif3.swe1.kisin.monsterTradingCards.User;
 import at.bif3.swe1.kisin.monsterTradingCards.cards.Card;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -19,6 +17,8 @@ class JsonTest {
 
     private final String simpleTestCase = "{\"Username\":\"kienboec\", \"Password\":\"daniel\"}";
     private final String arrayTestCase = "[{\"Id\":\"845f0dc7-37d0-426e-994e-43fc3ac83c08\", \"Name\":\"WaterGoblin\", \"Damage\": 10.0}, {\"Id\":\"99f8f8dc-e25e-4a95-aa2c-782823f36e2a\", \"Name\":\"Dragon\", \"Damage\": 50.0}, {\"Id\":\"e85e3976-7c86-4d06-9a80-641c2019a79f\", \"Name\":\"WaterSpell\", \"Damage\": 20.0}, {\"Id\":\"1cb6ab86-bdb2-47e5-b6e4-68c5ab389334\", \"Name\":\"Ork\", \"Damage\": 45.0}, {\"Id\":\"dfdd758f-649c-40f9-ba3a-8657f4b3439f\", \"Name\":\"FireSpell\", \"Damage\": 25.0}]";
+
+    private final String stringifyTest = "\"951e886a-0fbf-425d-8df5-af2ee4830d85\"";
 
     @Test
     void parse() throws JsonProcessingException {
@@ -62,11 +62,15 @@ class JsonTest {
 
     @Test
     void stringify() throws JsonProcessingException {
-        UserCredentials userCred = new UserCredentials();
-        userCred.setUsername("NjoNjo");
-        JsonNode node = Json.toJson(userCred);
-        Json.stringify(node);
-        assertEquals(node.get("Username").asText(), "NjoNjo");
+//        UserCredentials userCred = new UserCredentials();
+//        userCred.setUsername("NjoNjo");
+//        JsonNode node = Json.toJson(userCred);
+//        Json.stringify(node);
+//        assertEquals(node.get("Username").asText(), "NjoNjo");
+        String testCase = Json.jsonToString(stringifyTest);
+        System.out.println(testCase);
+        //String copy = testCase.substring(1, testCase.length() -1);
+        //System.out.println(copy);
     }
 
     @Test

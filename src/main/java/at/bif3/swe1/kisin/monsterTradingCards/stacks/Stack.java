@@ -21,6 +21,10 @@ public class Stack {
         }
     }
 
+    public void fillStack(Vector<Card> cards){
+        this.stack = cards;
+    }
+
     public Card randomCard(){
         int index = rand.nextInt(this.stack.size());
         Card card = this.stack.get(index);

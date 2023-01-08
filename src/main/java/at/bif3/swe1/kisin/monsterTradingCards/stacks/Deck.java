@@ -4,7 +4,6 @@ import at.bif3.swe1.kisin.monsterTradingCards.User;
 import at.bif3.swe1.kisin.monsterTradingCards.cards.Card;
 
 import java.util.Random;
-import java.util.Stack;
 import java.util.Vector;
 
 public class Deck {

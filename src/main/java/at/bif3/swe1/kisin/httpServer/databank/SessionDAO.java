@@ -1,8 +1,5 @@
 package at.bif3.swe1.kisin.httpServer.databank;
 
-import at.bif3.swe1.kisin.monsterTradingCards.cards.Card;
-import at.bif3.swe1.kisin.monsterTradingCards.enums.ElementType;
-import at.bif3.swe1.kisin.monsterTradingCards.enums.MonsterType;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

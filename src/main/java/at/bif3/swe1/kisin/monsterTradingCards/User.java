@@ -4,6 +4,7 @@ import at.bif3.swe1.kisin.monsterTradingCards.cards.Card;
 import at.bif3.swe1.kisin.monsterTradingCards.stacks.Deck;
 import at.bif3.swe1.kisin.monsterTradingCards.stacks.Stack;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Vector;
 
 public class User {
@@ -138,6 +139,20 @@ public class User {
         this.deck.setDeck(deck);
     }
 
+    public String userStats(){
+        return "User: " + this.username + "\n" +
+                "Elo: " + this.elo + "\n" +
+                "Coins: " + this.coins + "\n" +
+                "Stack size: " + this.stack.getStack().size() + "\n";
+    }
+
+    public String userScore(){
+        return "User: " + this.username + "\t" +
+                "Elo: " + this.elo + "\t" +
+                "Coins: " + this.coins + "\t" +
+                "Stack size: " + this.stack.getStack().size() + "\n";
+    }
+
     @Override
     public String toString() {
         return "User: " + username + " {" +
@@ -152,5 +167,9 @@ public class User {
                 ", coins=" + coins +
                 ", elo=" + elo +
                 '}';
+    }
+
+    public void setStack(Vector<Card> allCards) {
+        this.stack.fillStack(allCards);
     }
 }
