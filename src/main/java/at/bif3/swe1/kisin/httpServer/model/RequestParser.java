@@ -48,7 +48,7 @@ public class RequestParser {
         }
         return request;
     }
-    private List<String> splitPath(){
+    public List<String> splitPath(){
         String fullPath = request.getFullPath().substring(1);
         List<String> temp = List.of(fullPath.split("/"));
 

@@ -1,9 +1,18 @@
 package at.bif3.swe1.kisin.monsterTradingCards;
 
+import at.bif3.swe1.kisin.monsterTradingCards.battle.Battle;
+import at.bif3.swe1.kisin.monsterTradingCards.stacks.Deck;
+import at.bif3.swe1.kisin.monsterTradingCards.user.User;
+
 public class Main {
     public static void main(String[] args) {
+        //User player1 =
         Battle battle = new Battle();
         battle.start();
+        Deck deck1 = new Deck();
+        Deck deck2 = new Deck();
+//        deck1 = this.player1.getUserDeck();
+//        deck2 = this.player2.getUserDeck();
 
 //        User player;
 //        player = new User("Player", "player1");

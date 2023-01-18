@@ -1,6 +1,6 @@
 package at.bif3.swe1.kisin.monsterTradingCards.stacks;
 
-import at.bif3.swe1.kisin.monsterTradingCards.User;
+import at.bif3.swe1.kisin.monsterTradingCards.user.User;
 import at.bif3.swe1.kisin.monsterTradingCards.cards.Card;
 
 import java.util.Random;
@@ -33,18 +33,6 @@ public class Deck {
     public Card chooseCard(){
         int index = rand.nextInt(deck.size());
         return deck.elementAt(index);
-//        System.out.println(this.username + " choose a card to play the next round!");
-//        listDeck();
-//        Scanner in = new Scanner(System.in);
-//
-//        int choice = in.nextInt();
-//        return switch (choice) {
-//            case 1 -> deck.elementAt(0);
-//            case 2 -> deck.elementAt(1);
-//            case 3 -> deck.elementAt(2);
-//            case 4 -> deck.elementAt(3);
-//            default -> null;
-//        };
     }
 
     public void  listDeck(){
@@ -61,4 +49,5 @@ public class Deck {
     public void setDeck(Vector<Card> deck) {
         this.deck = deck;
     }
+
 }

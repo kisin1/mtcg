@@ -1,12 +1,10 @@
 package at.bif3.swe1.kisin.httpServer.json;
 
 import at.bif3.swe1.kisin.monsterTradingCards.cards.Card;
-import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.json.JsonWriteFeature;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.*;
-import com.fasterxml.jackson.databind.json.JsonMapper;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,7 +12,6 @@ import java.util.List;
 import java.util.Map;
 
 public class Json {
-
     private static ObjectMapper objectMapper = defaultObjectMapper();
 
     private static ObjectMapper defaultObjectMapper(){
@@ -33,7 +30,11 @@ public class Json {
         objectWriter = objectWriter.with(SerializationFeature.INDENT_OUTPUT);
         return objectWriter.writeValueAsString(src);
     }
-
+    public static String stringToJson(List<String> src) throws JsonProcessingException {
+        ObjectWriter objectWriter = objectMapper.writer();
+        objectWriter = objectWriter.with(SerializationFeature.INDENT_OUTPUT);
+        return objectWriter.writeValueAsString(src);
+    }
 
     //from json to java object
     public static <A> A fromJson(JsonNode json, Class<A> returnClass) throws IOException {

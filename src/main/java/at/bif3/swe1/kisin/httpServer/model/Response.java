@@ -11,7 +11,7 @@ public class Response {
     private String STATUS_MESSAGE;
     private final ContentType contentType;
     private String content;
-    private JsonNode jsonContent;
+//    private JsonNode jsonContent;
     private final String version;
     private final String CRLF = "\r\n";
 
@@ -24,6 +24,9 @@ public class Response {
         this.version = "HTTP/1.1";
     }
 
+    public ContentType getContentType() {
+        return contentType;
+    }
 
     public void setStatusCode(StatusCode statusCode){
         this.STATUS_CODE = statusCode.STATUS_CODE;

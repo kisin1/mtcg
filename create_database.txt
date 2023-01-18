@@ -1,0 +1,42 @@
+DROP TABLE "user";
+DROP TABLE session;
+DROP TABLE trading;
+DROP TABLE card;
+
+
+CREATE TABLE card(
+                     card_id VARCHAR(100) PRIMARY KEY,
+                     card_name VARCHAR(100) NOT NULL,
+                     monster_type VARCHAR(100),
+                     card_element VARCHAR(50),
+                     damage FLOAT NOT NULL,
+                     owner VARCHAR(50),
+                     package_id INT NOT NULL,
+                     in_deck BOOLEAN NOT NULL,
+                     card_type VARCHAR(50)
+);
+CREATE TABLE session(
+                        session_id SERIAL PRIMARY KEY,
+                        token VARCHAR(100)
+);
+CREATE TABLE trading(
+                        trading_id VARCHAR(100) PRIMARY KEY,
+                        card_id VARCHAR(100) NOT NULL UNIQUE,
+                        card_type VARCHAR(50),
+                        min_damage FLOAT NOT NULL,
+                        owner VARCHAR(50) NOT NULL UNIQUE
+);
+CREATE TABLE "user"(
+                       user_id SERIAL PRIMARY KEY,
+                       username VARCHAR(50) NOT NULL UNIQUE,
+                       password VARCHAR(50) NOT NULL,
+                       bio VARCHAR(100),
+                       token VARCHAR(100) NOT NULL,
+                       image VARCHAR(100),
+                       elo INT NOT NULL,
+                       coins INT NOT NULL,
+                       admin BOOLEAN NOT NULL,
+                       name VARCHAR(50),
+                       in_battle BOOLEAN
+);
+
